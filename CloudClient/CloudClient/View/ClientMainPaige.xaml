@@ -1,0 +1,32 @@
+﻿<Window x:Class="CloudClient.View.ClientMainPaige"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CloudClient.View"
+        xmlns:vm="clr-namespace:CloudClient.ViewModel"
+        Title="ClientMainPaige" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <ListBox x:Name="DirectoryListBox" Grid.Row="0" Grid.Column="0" Margin="10" 
+                 DisplayMemberPath="Name" SelectionMode="Single"
+                 ItemsSource="{Binding Directories}" 
+                 SelectedItem="{Binding SelectedDirectory}" />
+        
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10" >
+            <Button Content="Создать директорию" Command="{Binding CreateDirectoryCommand}" Margin="5" Height="35" />
+            <Button Content="Удалить директорию" Command="{Binding DeleteDirectoryCommand}" Margin="5" Height="35"/>
+            <Button Content="Переименовать директорию" Command="{Binding RenameDirectoryCommand}" Margin="5" Height="35"/>
+            <Button Content="Загрузить файл" Command="{Binding UploadFileCommand}" Margin="5" Height="35"/>
+            <Button Content="Выгрузить файл" Command="{Binding DownloadFileCommand}" Margin="5" Height="35"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

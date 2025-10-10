@@ -1,0 +1,24 @@
+﻿<Window x:Class="CloudClient.View.LoginPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CloudClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="650">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock TextAlignment="Center"  FontSize="20" Grid.Row="0" >Введите свой логин: </TextBlock>
+        <TextBox Grid.Row="0" FontSize="20" Height="40" Width="350" VerticalContentAlignment="Center" Text="{Binding LoginBox}" ></TextBox>
+        <TextBlock  TextAlignment="Center"  FontSize="20" Grid.Row="1" >Введите свой пароль: </TextBlock>
+        <PasswordBox Grid.Row="1" FontSize="20" Height="40" Width="350" VerticalContentAlignment="Center" DataContext="{Binding PasswordBox}"></PasswordBox>
+        
+        <Button HorizontalAlignment="Left" Grid.Row="2" Height="35" Width="150" Command="{Binding LoginCommand}">Авторизоваться!</Button>
+        <Button HorizontalAlignment="Right" Grid.Row="2" Height="35" Width="150" Command="{Binding RegisterCommand}">Регистрация!</Button>
+    </Grid>
+</Window>
