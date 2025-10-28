@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\RiderProjects\\CloudServer\\CloudServer\\CloudServer.csproj": {}
+    "D:\\Desktop\\CloudServer\\CloudServer\\CloudServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\RiderProjects\\CloudServer\\CloudServer\\CloudServer.csproj": {
+    "D:\\Desktop\\CloudServer\\CloudServer\\CloudServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\RiderProjects\\CloudServer\\CloudServer\\CloudServer.csproj",
+        "projectUniqueName": "D:\\Desktop\\CloudServer\\CloudServer\\CloudServer.csproj",
         "projectName": "CloudServer",
-        "projectPath": "C:\\Users\\Admin\\RiderProjects\\CloudServer\\CloudServer\\CloudServer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\RiderProjects\\CloudServer\\CloudServer\\obj\\",
+        "projectPath": "D:\\Desktop\\CloudServer\\CloudServer\\CloudServer.csproj",
+        "packagesPath": "C:\\Users\\farid\\.nuget\\packages\\",
+        "outputPath": "D:\\Desktop\\CloudServer\\CloudServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\farid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Admin\\.dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

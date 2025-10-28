@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Admin\RiderProjects\CloudClient\CloudClient\obj\Debug\net9.0-windows\
+D:\Desktop\CloudClient\CloudClient\obj\Debug\net9.0-windows\
 CloudClient
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\Admin\RiderProjects\CloudClient\CloudClient\App.xaml
-3967007505
+D:\Desktop\CloudClient\CloudClient\App.xaml
+72014078322
 
-10680294244
-202-322771222
-View\ClientMainPaige.xaml;View\LoginPage.xaml;View\RegisterPage.xaml;
+23601377883
+2081297755721
+View\ClientMainPaige.xaml;View\CreateDirPage.xaml;View\DeleteDirPage.xaml;View\LoginPage.xaml;View\RegisterPage.xaml;View\RenameDirPage.xaml;View\UploadFilePage.xaml;
 
 False
 

@@ -5,7 +5,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:CloudClient.View"
         mc:Ignorable="d"
-        Title="RegisterPage" Height="450" Width="800">
+        Title="RegisterPage" Height="650" Width="650"
+        WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="120"></RowDefinition>
@@ -16,7 +17,7 @@
         <TextBlock TextAlignment="Center"  FontSize="20" Grid.Row="0" >Введите свой логин: </TextBlock>
         <TextBox Grid.Row="0" FontSize="20" Height="40" Width="350" VerticalContentAlignment="Center" Text="{Binding LoginBox}" ></TextBox>
         <TextBlock  TextAlignment="Center"  FontSize="20" Grid.Row="1" >Введите свой пароль: </TextBlock>
-        <PasswordBox Grid.Row="1" FontSize="20" Height="40" Width="350" VerticalContentAlignment="Center" DataContext="{Binding PasswordBox}"></PasswordBox>
+        <PasswordBox Grid.Row="1" FontSize="20" Height="40" Width="350" VerticalContentAlignment="Center" PasswordChanged="PasswordBox_OnPasswordChanged"></PasswordBox>
         
         <Button HorizontalAlignment="Left" Grid.Row="2" Height="35" Width="150" Command="{Binding RegisterCommand}">Регистрация!</Button>
         <Button HorizontalAlignment="Right" Grid.Row="2" Height="35" Width="150" Command="{Binding BackCommand}">Назад!</Button>

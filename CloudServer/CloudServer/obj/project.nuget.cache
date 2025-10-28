@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Oy6aeDGgFpQ=",
+  "dgSpecHash": "NY0Ae+AM350=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\RiderProjects\\CloudServer\\CloudServer\\CloudServer.csproj",
+  "projectFilePath": "D:\\Desktop\\CloudServer\\CloudServer\\CloudServer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\system.io.pipelines\\10.0.0-rc.1.25451.107\\system.io.pipelines.10.0.0-rc.1.25451.107.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.text.encodings.web\\10.0.0-rc.1.25451.107\\system.text.encodings.web.10.0.0-rc.1.25451.107.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.text.json\\10.0.0-rc.1.25451.107\\system.text.json.10.0.0-rc.1.25451.107.nupkg.sha512"
+    "C:\\Users\\farid\\.nuget\\packages\\system.io.pipelines\\10.0.0-rc.1.25451.107\\system.io.pipelines.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\system.text.encodings.web\\10.0.0-rc.1.25451.107\\system.text.encodings.web.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\system.text.json\\10.0.0-rc.1.25451.107\\system.text.json.10.0.0-rc.1.25451.107.nupkg.sha512"
   ],
   "logs": []
 }

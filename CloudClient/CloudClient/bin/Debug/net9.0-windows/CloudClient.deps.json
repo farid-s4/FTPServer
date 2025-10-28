@@ -10,7 +10,8 @@
         "dependencies": {
           "CommunityToolkit.Mvvm": "8.4.0",
           "Newtonsoft.Json": "13.0.3",
-          "System.Text.Json": "9.0.6"
+          "System.Text.Json": "9.0.6",
+          "Vintasoft.Imaging.Wpf.UI": "14.1.12.1"
         },
         "runtime": {
           "CloudClient.dll": {}
@@ -32,7 +33,79 @@
           }
         }
       },
-      "System.Text.Json/9.0.6": {}
+      "System.Text.Json/9.0.6": {},
+      "Vintasoft.Imaging/14.1.12.1": {
+        "dependencies": {
+          "Vintasoft.Shared": "4.5.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/Vintasoft.Imaging.dll": {
+            "assemblyVersion": "14.1.12.1",
+            "fileVersion": "14.1.12.1"
+          }
+        }
+      },
+      "Vintasoft.Imaging.Gdi/14.1.12.1": {
+        "dependencies": {
+          "Vintasoft.Imaging": "14.1.12.1",
+          "Vintasoft.Shared": "4.5.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/Vintasoft.Imaging.Gdi.dll": {
+            "assemblyVersion": "14.1.12.1",
+            "fileVersion": "14.1.12.1"
+          }
+        }
+      },
+      "Vintasoft.Imaging.UI/14.1.12.1": {
+        "dependencies": {
+          "Vintasoft.Imaging": "14.1.12.1",
+          "Vintasoft.Imaging.Gdi": "14.1.12.1",
+          "Vintasoft.Shared": "4.5.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/Vintasoft.Imaging.UI.dll": {
+            "assemblyVersion": "14.1.12.1",
+            "fileVersion": "14.1.12.1"
+          }
+        }
+      },
+      "Vintasoft.Imaging.Wpf/14.1.12.1": {
+        "dependencies": {
+          "Vintasoft.Imaging": "14.1.12.1",
+          "Vintasoft.Imaging.Gdi": "14.1.12.1",
+          "Vintasoft.Shared": "4.5.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/Vintasoft.Imaging.Wpf.dll": {
+            "assemblyVersion": "14.1.12.1",
+            "fileVersion": "14.1.12.1"
+          }
+        }
+      },
+      "Vintasoft.Imaging.Wpf.UI/14.1.12.1": {
+        "dependencies": {
+          "Vintasoft.Imaging": "14.1.12.1",
+          "Vintasoft.Imaging.Gdi": "14.1.12.1",
+          "Vintasoft.Imaging.UI": "14.1.12.1",
+          "Vintasoft.Imaging.Wpf": "14.1.12.1",
+          "Vintasoft.Shared": "4.5.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/Vintasoft.Imaging.Wpf.UI.dll": {
+            "assemblyVersion": "14.1.12.1",
+            "fileVersion": "14.1.12.1"
+          }
+        }
+      },
+      "Vintasoft.Shared/4.5.0.1": {
+        "runtime": {
+          "lib/net9.0/Vintasoft.Shared.dll": {
+            "assemblyVersion": "4.5.0.1",
+            "fileVersion": "4.5.0.1"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -61,6 +134,48 @@
       "sha512": "sha512-h+ZtYTyTnTh5Ju6mHCKb3FPGx4ylJZgm9W7Y2psUnkhQRPMOIxX+TCN0ZgaR/+Yea+93XHWAaMzYTar1/EHIPg==",
       "path": "system.text.json/9.0.6",
       "hashPath": "system.text.json.9.0.6.nupkg.sha512"
+    },
+    "Vintasoft.Imaging/14.1.12.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xp6bifRPY69bUVLW45Qd82AMoqvGyDRIBsnGhPoReJemQziBW55XaMLl0Gzgcv9Qr9fPUuu1vMsNoIQSyTXs2g==",
+      "path": "vintasoft.imaging/14.1.12.1",
+      "hashPath": "vintasoft.imaging.14.1.12.1.nupkg.sha512"
+    },
+    "Vintasoft.Imaging.Gdi/14.1.12.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6iwX2FzvVPVLyP63hdZeam0KZuspKJ+RcABLkQxizceOHESH83JkOHDbirl53zf3exNBkFnxy+ZrUgL4oYw2hQ==",
+      "path": "vintasoft.imaging.gdi/14.1.12.1",
+      "hashPath": "vintasoft.imaging.gdi.14.1.12.1.nupkg.sha512"
+    },
+    "Vintasoft.Imaging.UI/14.1.12.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zPIE6yOYoCejgPnKuEwgtYMLDkE7vMj9tLJ/iXVOauWpls2alxk/ThuWTvBrAr2DPU5vf0OaBWeRN8yoxNtN/A==",
+      "path": "vintasoft.imaging.ui/14.1.12.1",
+      "hashPath": "vintasoft.imaging.ui.14.1.12.1.nupkg.sha512"
+    },
+    "Vintasoft.Imaging.Wpf/14.1.12.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QJKoo6u4Qj/ntd5dEUmWCwnPvCn+pArDOjfsJ97i3ckM0z9yRrXwvXqsks5KUixclDEY+ByfiAkcVDGsqs+7hA==",
+      "path": "vintasoft.imaging.wpf/14.1.12.1",
+      "hashPath": "vintasoft.imaging.wpf.14.1.12.1.nupkg.sha512"
+    },
+    "Vintasoft.Imaging.Wpf.UI/14.1.12.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-01ovf3SoU2DyBqcrw5QrEJ6PeSZ2/wFrF56OqBpk8vJp3SP8l3ETaLgxVU/F+GYyUcM2orXggAFoIzT+OMe+Rw==",
+      "path": "vintasoft.imaging.wpf.ui/14.1.12.1",
+      "hashPath": "vintasoft.imaging.wpf.ui.14.1.12.1.nupkg.sha512"
+    },
+    "Vintasoft.Shared/4.5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0OhkvXWl/L81zC+QOfHt+o3JjB7rbSxDfHnGorF2YJ30kK0MCqXCAGUv7sRURwH5jPz+kBkvACZDX0GIIcFGWA==",
+      "path": "vintasoft.shared/4.5.0.1",
+      "hashPath": "vintasoft.shared.4.5.0.1.nupkg.sha512"
     }
   }
 }

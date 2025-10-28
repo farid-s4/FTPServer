@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CloudClient.View"
         xmlns:vm="clr-namespace:CloudClient.ViewModel"
-        Title="ClientMainPaige" Height="450" Width="800">
+        Title="ClientMainPaige" Height="650" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -15,18 +17,34 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         
-        <ListBox x:Name="DirectoryListBox" Grid.Row="0" Grid.Column="0" Margin="10" 
-                 DisplayMemberPath="Name" SelectionMode="Single"
-                 ItemsSource="{Binding Directories}" 
-                 SelectedItem="{Binding SelectedDirectory}" />
+        <ListView Grid.Row="0" Grid.Column="0" ItemsSource="{Binding CurrentItems}"
+                  SelectedItem="{Binding CurrentSelectedItem}" Margin="0,0,8,0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="FileList_MouseDoubleClick" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Имя папки" DisplayMemberBinding="{Binding Name}" Width="264" />
+                    <GridViewColumn Header="Путь" DisplayMemberBinding="{Binding FullPath}" Width="460" />
+                </GridView>
+            </ListView.View>
+        </ListView>
         
-        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10" >
+        <Button Grid.Row="1" Grid.Column="0" 
+                Content="Назад" 
+                Command="{Binding GoBackCommand}" 
+                Visibility="{Binding DirectoryContentVisibility}"
+                Margin="5" Height="30" HorizontalAlignment="Left" Width="100"/>
+        
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,50,15,0" >
             <Button Content="Создать директорию" Command="{Binding CreateDirectoryCommand}" Margin="5" Height="35" />
             <Button Content="Удалить директорию" Command="{Binding DeleteDirectoryCommand}" Margin="5" Height="35"/>
             <Button Content="Переименовать директорию" Command="{Binding RenameDirectoryCommand}" Margin="5" Height="35"/>
             <Button Content="Загрузить файл" Command="{Binding UploadFileCommand}" Margin="5" Height="35"/>
             <Button Content="Выгрузить файл" Command="{Binding DownloadFileCommand}" Margin="5" Height="35"/>
         </StackPanel>
-
+        <Button Grid.Row="0" Grid.Column="1" Content="Выйти с аккаунта" Command="{Binding LogoutCommand}" Margin="25" Height="35" Background= "#cd2962"  VerticalAlignment="Bottom" />
     </Grid>
 </Window>

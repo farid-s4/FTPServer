@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
 using CloudClient.Model;
+using CloudClient.Services;
 using CloudClient.View;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -12,6 +13,7 @@ namespace CloudClient.ViewModel;
 
 public class RegisterViewModel : ObservableObject
 {
+    private AuthService _authService;
     private Client _client = new Client(); 
     
     private string _loginBox;
@@ -33,53 +35,51 @@ public class RegisterViewModel : ObservableObject
     {
         RegisterCommand = new RelayCommand(RegisterUser);
         BackCommand = new RelayCommand(Back);
+        _authService = new AuthService("192.168.0.100", 9999);
     }
 
     private void Back()
     {
         LoginPage backToLoginPage = new LoginPage();
         backToLoginPage.Show();
-        
+        Application.Current.MainWindow = backToLoginPage;
+        foreach (Window window in Application.Current.Windows)
+        {
+            if (window != backToLoginPage)
+            {
+                window.Close();
+                break;
+            }
+        }
     }
 
     private async void RegisterUser()
     {
-        _client.Name = LoginBox;
-        _client.Password = PasswordBox;
-        _client.Command = "CREATE_CLIENT";
-        _client.RootPath = LoginBox + "-root";
-        string json = JsonSerializer.Serialize(_client);
-
-        try
+        string loginBox = LoginBox;
+        string passwordBox = PasswordBox;
+        var cmd = new Command
         {
-            await SendToServerClientAsync(json);
-            MessageBox.Show("Регистрация прошла успешно!");
-        }
-        catch (Exception e)
-        {
-            MessageBox.Show(e.Message);
-            throw;
-        }
-    }
-
-    private async Task SendToServerClientAsync(string json)
-    {
-        try
-        {
-            using (TcpClient client = new TcpClient())
+            CommandName = "REGISTER_USER",
+            Args = new Dictionary<string, string>
             {
-                client.Connect("192.168.0.101", 9999);
-                using (NetworkStream stream = client.GetStream())
-                {
-                    byte[] data = Encoding.UTF8.GetBytes(json);
-                    await stream.WriteAsync(data, 0, data.Length);
-                    await stream.FlushAsync();
-                }
+                { "username", loginBox },
+                { "password", passwordBox }
             }
-        }
-        catch (Exception e)
+        };
+
+        await _authService.SendMessageAsync(cmd);
+
+        var resp = await _authService.GetMessageAsync<string>();
+
+        if (resp != null && resp.Status == "OK")
         {
-            MessageBox.Show($"Ошибка при отправке данных на сервер: {e.Message}");
+            MessageBox.Show(resp.Message);
+        }
+
+        if (resp != null  && resp.Status == "ERROR")
+        {
+            MessageBox.Show(resp.Message);
         }
     }
+    
 }

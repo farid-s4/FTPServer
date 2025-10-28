@@ -1,6 +1,4 @@
-﻿using System.Net.Sockets;
-using System.Text.Json.Serialization;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace CloudClient.Model;
 
@@ -25,7 +23,4 @@ public class Client :  ObservableObject
         get => _rootPath;
         set => SetProperty(ref _rootPath, value);
     }
-    
-    public string Command { get; set; }
-
 }

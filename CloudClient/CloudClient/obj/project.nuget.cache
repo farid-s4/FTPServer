@@ -1,12 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "JW058i3DP3w=",
+  "dgSpecHash": "dYTJBDfsEsc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\RiderProjects\\CloudClient\\CloudClient\\CloudClient.csproj",
+  "projectFilePath": "D:\\Desktop\\CloudClient\\CloudClient\\CloudClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.text.json\\9.0.6\\system.text.json.9.0.6.nupkg.sha512"
+    "C:\\Users\\farid\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\system.text.json\\9.0.6\\system.text.json.9.0.6.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\vintasoft.imaging\\14.1.12.1\\vintasoft.imaging.14.1.12.1.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\vintasoft.imaging.gdi\\14.1.12.1\\vintasoft.imaging.gdi.14.1.12.1.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\vintasoft.imaging.ui\\14.1.12.1\\vintasoft.imaging.ui.14.1.12.1.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\vintasoft.imaging.wpf\\14.1.12.1\\vintasoft.imaging.wpf.14.1.12.1.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\vintasoft.imaging.wpf.ui\\14.1.12.1\\vintasoft.imaging.wpf.ui.14.1.12.1.nupkg.sha512",
+    "C:\\Users\\farid\\.nuget\\packages\\vintasoft.shared\\4.5.0.1\\vintasoft.shared.4.5.0.1.nupkg.sha512"
   ],
   "logs": []
 }

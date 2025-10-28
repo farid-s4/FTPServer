@@ -1,6 +1,10 @@
 ﻿
 
-FC:\Users\Admin\RiderProjects\CloudClient\CloudClient\View\ClientMainPaige.xaml;;
-FC:\Users\Admin\RiderProjects\CloudClient\CloudClient\View\LoginPage.xaml;;
-FC:\Users\Admin\RiderProjects\CloudClient\CloudClient\View\RegisterPage.xaml;;
+FD:\Desktop\CloudClient\CloudClient\View\ClientMainPaige.xaml;;
+FD:\Desktop\CloudClient\CloudClient\View\CreateDirPage.xaml;;
+FD:\Desktop\CloudClient\CloudClient\View\DeleteDirPage.xaml;;
+FD:\Desktop\CloudClient\CloudClient\View\LoginPage.xaml;;
+FD:\Desktop\CloudClient\CloudClient\View\RegisterPage.xaml;;
+FD:\Desktop\CloudClient\CloudClient\View\RenameDirPage.xaml;;
+FD:\Desktop\CloudClient\CloudClient\View\UploadFilePage.xaml;;
 

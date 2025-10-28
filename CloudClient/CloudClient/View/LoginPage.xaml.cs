@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using CloudClient.ViewModel;
 
 namespace CloudClient.View;
@@ -12,5 +13,13 @@ public partial class LoginPage : Window
     {
         InitializeComponent();
         DataContext = new LoginViewModel();
+    }
+
+    private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
+    {
+        if (DataContext is LoginViewModel vm)
+        {
+            vm.PasswordBox = ((PasswordBox)sender).Password;
+        }
     }
 }

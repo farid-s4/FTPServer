@@ -3,28 +3,29 @@ using System.Text;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using CloudClient.Model;
+using CloudClient.Services;
 using CloudClient.View;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-
 namespace CloudClient.ViewModel;
 public class LoginViewModel : ObservableObject
 {
+    private AuthService _authService;
     private Client _client = new Client(); 
-    
     private string _loginBox;
 
     public string LoginBox
     {
-        get { return _loginBox; }
-        set { SetProperty(ref _loginBox, value); }
+        get => _loginBox;
+        set => SetProperty(ref _loginBox, value);
     }
     private string _passwordBox;
     public string PasswordBox
     {
-        get { return _passwordBox; }
-        set { SetProperty(ref _passwordBox, value); }
+        get => _passwordBox;
+        set => SetProperty(ref _passwordBox, value);
     }
     
     public ICommand LoginCommand {get;}
@@ -34,6 +35,7 @@ public class LoginViewModel : ObservableObject
     {
         LoginCommand = new RelayCommand(Login);
         RegisterCommand = new RelayCommand(Register);
+        _authService = new AuthService("192.168.0.100", 9999);
     }
 
     private void Register()
@@ -41,72 +43,56 @@ public class LoginViewModel : ObservableObject
         RegisterPage registerWindow = new RegisterPage();
         registerWindow.Show();
 
-        if (Application.Current.MainWindow != null) Application.Current.MainWindow.Close();
+        Application.Current.MainWindow = registerWindow;
+        foreach (Window window in Application.Current.Windows)
+        {
+            if (window != registerWindow)
+            {
+                window.Close();
+                break;
+            }
+        }
     }
 
     private async void Login()
     {
-        _client.Name = LoginBox;
-        _client.Password = PasswordBox;
-        _client.Command = "CHECK_LOGIN";
-        
-        string json = JsonSerializer.Serialize(_client);
-        
-        try
+        string loginBox =  LoginBox;
+        string passwordBox = PasswordBox;
+        var cmd = new Command
         {
-            string response = await SendRequestForLogin(json);
-
-            if (response == "Invalid login or password")
+            CommandName = "LOGIN_USER",
+            Args = new Dictionary<string, string>
             {
-                MessageBox.Show("Invalid login or password");
+                { "username", loginBox },
+                { "password", passwordBox }
             }
-            else
+        };
+        
+        await _authService.SendMessageAsync(cmd);
+        
+        var resp = await _authService.GetMessageAsync<Client>();
+        
+        if (resp != null && resp.Status == "LOGGED")
+        {
+            MessageBox.Show(resp.Message);
+            var client = new ClientMainPaige(resp.Data);
+            client.Show();
+            
+            Application.Current.MainWindow = client;
+            foreach (Window window in Application.Current.Windows)
             {
-                Client? loggedInClient = JsonSerializer.Deserialize<Client>(response);
-                if (loggedInClient != null)
+                if (window != client)
                 {
-                    MessageBox.Show($"Добро пожаловать, {loggedInClient.Name}!");
-
-                    var clientPage = new ClientMainPaige();
-                    clientPage.Show();
-                    if (Application.Current.MainWindow != null) Application.Current.MainWindow.Close();
+                    window.Close();
+                    break;
                 }
             }
         }
-        catch (Exception e)
-        {
-            MessageBox.Show(e.Message);
-            throw;
-        }
-        
-    }
 
-    private async Task<string> SendRequestForLogin(string json)
-    {
-        try
+        if (resp != null  && resp.Status == "ERROR")
         {
-            using (TcpClient client = new TcpClient())
-            {
-                client.Connect("192.168.0.101", 9999);
-
-                using (NetworkStream stream = client.GetStream())
-                {
-                    byte[] data = Encoding.UTF8.GetBytes(json);
-                    await stream.WriteAsync(data, 0, data.Length);
-                    await stream.FlushAsync();
-                    
-                    byte[] buffer = new byte[4096];
-                    int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
-                    string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-
-                    return response;
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            MessageBox.Show($"Ошибка при отправке данных на сервер: {e.Message}");
-            return "ERROR";
+            MessageBox.Show(resp.Message);
         }
     }
+    
 }
