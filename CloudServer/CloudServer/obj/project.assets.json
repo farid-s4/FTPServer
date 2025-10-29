@@ -217,11 +217,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\CloudServer\\CloudServer\\CloudServer.csproj",
+      "projectUniqueName": "C:\\Users\\farid\\Desktop\\FTPServer\\CloudServer\\CloudServer\\CloudServer.csproj",
       "projectName": "CloudServer",
-      "projectPath": "D:\\Desktop\\CloudServer\\CloudServer\\CloudServer.csproj",
+      "projectPath": "C:\\Users\\farid\\Desktop\\FTPServer\\CloudServer\\CloudServer\\CloudServer.csproj",
       "packagesPath": "C:\\Users\\farid\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\CloudServer\\CloudServer\\obj\\",
+      "outputPath": "C:\\Users\\farid\\Desktop\\FTPServer\\CloudServer\\CloudServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\farid\\AppData\\Roaming\\NuGet\\NuGet.Config",

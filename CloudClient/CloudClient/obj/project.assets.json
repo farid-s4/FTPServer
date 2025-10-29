@@ -441,11 +441,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\CloudClient\\CloudClient\\CloudClient.csproj",
+      "projectUniqueName": "C:\\Users\\farid\\Desktop\\FTPServer\\CloudClient\\CloudClient\\CloudClient.csproj",
       "projectName": "CloudClient",
-      "projectPath": "D:\\Desktop\\CloudClient\\CloudClient\\CloudClient.csproj",
+      "projectPath": "C:\\Users\\farid\\Desktop\\FTPServer\\CloudClient\\CloudClient\\CloudClient.csproj",
       "packagesPath": "C:\\Users\\farid\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\CloudClient\\CloudClient\\obj\\",
+      "outputPath": "C:\\Users\\farid\\Desktop\\FTPServer\\CloudClient\\CloudClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\farid\\AppData\\Roaming\\NuGet\\NuGet.Config",

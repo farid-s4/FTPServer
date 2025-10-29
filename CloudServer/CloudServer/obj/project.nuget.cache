@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NY0Ae+AM350=",
+  "dgSpecHash": "Q+6wctHr0Cg=",
   "success": true,
-  "projectFilePath": "D:\\Desktop\\CloudServer\\CloudServer\\CloudServer.csproj",
+  "projectFilePath": "C:\\Users\\farid\\Desktop\\FTPServer\\CloudServer\\CloudServer\\CloudServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\farid\\.nuget\\packages\\system.io.pipelines\\10.0.0-rc.1.25451.107\\system.io.pipelines.10.0.0-rc.1.25451.107.nupkg.sha512",
     "C:\\Users\\farid\\.nuget\\packages\\system.text.encodings.web\\10.0.0-rc.1.25451.107\\system.text.encodings.web.10.0.0-rc.1.25451.107.nupkg.sha512",

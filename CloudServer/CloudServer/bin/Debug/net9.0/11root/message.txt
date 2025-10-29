@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
@@ -9,34 +9,52 @@ namespace CloudClient.Services;
 public class AuthService 
 {
     private readonly TcpClient _client = new TcpClient();
-    NetworkStream _stream;
-    StreamReader _reader;
-    StreamWriter _writer;
+    private NetworkStream _stream;
+    private StreamReader _reader;
+    private StreamWriter _writer;
+    private readonly SemaphoreSlim _readLock = new SemaphoreSlim(1, 1);
+    private readonly SemaphoreSlim _writeLock = new SemaphoreSlim(1, 1);
     
     public AuthService(string ip, int port)
     {
         _client.Connect(ip, port);
         _stream = _client.GetStream();
-        _reader = new StreamReader(_stream,  Encoding.UTF8);
+        _reader = new StreamReader(_stream, Encoding.UTF8);
         _writer = new StreamWriter(_stream, Encoding.UTF8);
     }
 
     public async Task SendMessageAsync(Command cmd)
     {
-        string json = JsonSerializer.Serialize(cmd);
-        await _writer.WriteLineAsync(json);
-        await _writer.FlushAsync();
+        await _writeLock.WaitAsync();
+        try
+        {
+            string json = JsonSerializer.Serialize(cmd);
+            await _writer.WriteLineAsync(json);
+            await _writer.FlushAsync();
+        }
+        finally
+        {
+            _writeLock.Release();
+        }
     }
 
     public async Task<Response<T>?> GetMessageAsync<T>() where T : class
     {
-        string? response = await _reader.ReadLineAsync();
-
-        if (response != null)
+        await _readLock.WaitAsync();
+        try
         {
-            return JsonSerializer.Deserialize<Response<T>>(response);
+            string? response = await _reader.ReadLineAsync();
+
+            if (response != null)
+            {
+                return JsonSerializer.Deserialize<Response<T>>(response);
+            }
+            return null;
         }
-        return null;
+        finally
+        {
+            _readLock.Release();
+        }
     }
     
     public async Task<bool> SendFileAsync(string filePath)
@@ -45,6 +63,9 @@ public class AuthService
         {
             using (FileStream fileStream = File.OpenRead(filePath))
             {
+                byte[] fileSizeBytes = BitConverter.GetBytes(fileStream.Length);
+                await _stream.WriteAsync(fileSizeBytes, 0, fileSizeBytes.Length);
+                
                 byte[] buffer = new byte[1024];
                 int bytesRead;
 
@@ -52,11 +73,13 @@ public class AuthService
                 {
                     await _stream.WriteAsync(buffer, 0, bytesRead);
                 }
+                await _stream.FlushAsync();
                 return true;
             }
         }
         catch (Exception ex)
         {
+            System.Diagnostics.Debug.WriteLine($"SendFileAsync Error: {ex.Message}");
             return false;
         }
     }
@@ -106,6 +129,7 @@ public class AuthService
         }
         catch (Exception ex)
         {
+            System.Diagnostics.Debug.WriteLine($"ReceiveFileAsync Error: {ex.Message}");
             if (File.Exists(savePath))
             {
                 File.Delete(savePath);
@@ -113,6 +137,14 @@ public class AuthService
             return false;
         }
     }
-    
-}
 
+    public void Dispose()
+    {
+        _readLock?.Dispose();
+        _writeLock?.Dispose();
+        _reader?.Dispose();
+        _writer?.Dispose();
+        _stream?.Dispose();
+        _client?.Dispose();
+    }
+}
